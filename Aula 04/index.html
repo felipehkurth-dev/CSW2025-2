@@ -29,11 +29,54 @@
     <p>Na frase temos <b>uma parte em negrito</b> usando a tag b (Não semântica)</p>
     <p>Na frase temos <strong>uma parte em negrito</strong> usando a tag Strong (Com semântica)</p>
     <br>
-    <H2>Itálico/Ênfase</H2>
+    <h2>Itálico/Ênfase</h2>
     <p>Na frase temos <i>uma parte em itálico</i> usando a tag i (Não semântica)</p>
     <p>Na frase temos <em>uma parte em itálico</em> usando a tag em (Com semântica)</p>
     <br>
     <h2>Texto Marcado</h2>
-    <p>Aqui vamos usar um texto com destaque <mark background</p>
+    <p>Aqui vamos usar um texto com destaque <mark style="background-color: green;"> de marcador de texto </mark> usando mark</p>
+    <p>Aqui vamos usar um texto com destaque <mark> de marcador de texto</mark> usando mark</p>
+    <br>
+    <h2>Texto Grande e Pequeno</h2>
+    <p>Estamos trabalhando aqui com <big>Texto Grande</big> e <small>Texto pequeno</small> nesta frase.</p>
+    <br>
+    <h2>Texto deletado</h2>
+    <p>Neste paragráfo vamos trabalhar com um texto <del>que foi escluído</del> da frase (forma semântica)</p>
+    <br>
+    <h2>Texto Inserido</h2>
+    <p>Nesta frase vamos trabalhar como <ins>destacar um texto inserido na frase</ins> de (forma semântica)</p>
+    <p>Nesta frase vamos trabalhar como <u>destacar um texto inserido na frase</u>de (forma não semântica)</p>
+    <br>
+    <h2>Texto Sobrescrito</h2>
+    <p>Vammos demonstrar uma formúla da equação do segundo grau ax<sup>2</sup>+bx+c=0 usando tag sup</p>
+    <br>
+    <h2>Texto subscrito</h2>
+    <p>Vamos demostrar o texto subscrito com formúla da água H<sub>2</sub>O</p>
+    <br>
+    <H2>Trecho de código fonte</H2>
+    <p>Neste exemplo vou demonstrar um trecho de código inserido o comando <code> </code> é um comando Javascript</p>
+    <p>Inserindo um código em python:</p>
+    <pre>
+        <code>
+            def celsius_para_fahrenheit(celsius):
+                fahrenheit = (celsius * 9/5) + 32
+                return fahrenheit
+
+            # Exemplo de uso:
+            celsius = float(input("Digite a temperatura em graus Celsius: "))
+            fahrenheit = celsius_para_fahrenheit(celsius)
+            print(f"{celsius}°C equivalem a {fahrenheit:.2f}°F")
+        </code>
+    </pre>
+    <h2>Citação (quotation) simples</h2>
+    <p>Segundo Stee Jobs <q>A tecnologia move o mundo</q>.</p>
+    <br>
+    <h2>Citações completas (livros)</h2>
+    <p>Segundo Sandra Kussunoki no seu livro A dança e o ventre:</p>
+    <blockquote cite="https://www.pensador.com/frases_de_albert_einstein/">
+        Pode ser que um dia nos afastemos.
+        Mas, se formos amigos de verdade,
+        A amizade nos reaproximará.
+    </blockquote>
 </body>
 </html>
