@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1cm;
+    color: white;
+    background-color: lightsalmon;
+}
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.5cm;
+    color: red
+}
+p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.3cm;
+    color: red;
+}
