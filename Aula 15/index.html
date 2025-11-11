@@ -5,65 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 15</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="main-section">
     <div id="nascimento" class="logo">
-        <h1>Calculadora de idade</h1>
-        <p><em>Para calcular sua idade insira o dia, mês e ano de nascimento!</em></p>
+        <h1>Calculadora de Idade</h1>
+        <p><em>Para calcular sua idade, insira o dia, mês e ano de nascimento!</em></p>
     </div>
-    <div>
-        <span>Data de Nascimento</span>
-            <input type="text" width="10px" id="dia_nascimento" placeholder="Insira o dia!">
-            <select name="mes" size="1" id="mes_nascimento">
-                <option value="">Selecione</option>
-                <option value="01">Janeiro</option>
-                <option value="02">Fevereiro</option>
-                <option value="03">Março</option>
-                <option value="04">Abril</option>
-                <option value="05">Maio</option>
-                <option value="06">Junho</option>
-                <option value="07">Julho</option>
-                <option value="08">Agosto</option>
-                <option value="09">Setembro</option>
-                <option value="10">Outubro</option>
-                <option value="11">Novembro</option>
-                <option value="12">Dezembro</option>
-            </select>
-            <input type="number" name="ano_nascimento" id="ano_nascimento" placeholder="Insira o ano!">
+
+    <div class="form">
+        <span>Data de Nascimento:</span>
+        <input type="number" id="dia_nascimento" placeholder="Dia" min="1" max="31">
+        <select id="mes_nascimento">
+            <option value="">Selecione o mês</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+        </select>
+        <input type="number" id="ano_nascimento" placeholder="Ano">
     </div>
+
     <br>
-    <button class="botao"  onclick="calculaIdade()">Calcular Idade</button>
+    <button class="botao" onclick="calculaIdade()">Calcular Idade</button>
+
     <div>
-        <label onmouseover="calcularidade()" id="resultado">Idade</label>
-        <br><br><br>
+        <label id="resultado">Idade</label>
     </div>
     
-
     <script>
         function calculaIdade() {
-            var hoje = new Date()
+            const hoje = new Date();
 
-            let result= document.getElementById ('resultado')
+            const dia = parseInt(document.getElementById("dia_nascimento").value);
+            const mes = parseInt(document.getElementById("mes_nascimento").value);
+            const ano = parseInt(document.getElementById("ano_nascimento").value);
+            const result = document.getElementById("resultado");
 
-            var dia = document.getElementById("dia_nascimento").value;
-            var mes = document.getElementById("mes_nascimento").value;
-            var ano = document.getElementById("ano_nascimento").value;
-
-            if (dia <= 0 || dia > 31 || ano <= 0) {
-                alert("Digite uma data de nascimento valída!")
+            // Validação básica
+            if (!dia || !mes || !ano || dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900) {
+                alert("Digite uma data de nascimento válida!");
+                return;
             }
 
-            nascimento = new Date(ano + "/" + mes + "/" + ano)
+            // Cria data de nascimento corretamente
+            const nascimento = new Date(ano, mes - 1, dia);
 
-            var idade = hoje.getFullYear() - nascimento.getFullYear()
+            // Calcula idade base
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
 
-            let dth = new Date 
+            // Ajusta se ainda não fez aniversário este ano
+            const mesAtual = hoje.getMonth();
+            const diaAtual = hoje.getDate();
 
-            //window.alert("Data:" + dia + "/" + mes + "/" + ano);
-            //window.alert(idade);
-            window.alert(data);
+            if (mesAtual < nascimento.getMonth() ||
+                (mesAtual === nascimento.getMonth() && diaAtual < nascimento.getDate())) {
+                idade--;
+            }
+
+            // Mostra resultado na página
+            result.innerText = "Idade: " + idade + " anos";
         }
-
     </script>
+    </main>
+</body>
+
 </body>
 </html>
